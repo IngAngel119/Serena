@@ -7,8 +7,8 @@
 // Funciones para guardar y cargar JSON
 import Foundation
 
-/*class ReadJsonData: ObservableObject {
-    @Published var appDatas = AppData()
+class ReadJsonData: ObservableObject {
+    @Published var appDatas = [AppData]()
     
     init() {
         loadData()
@@ -22,31 +22,10 @@ import Foundation
         
         do {
             let data = try Data(contentsOf: url)
-            var gasStations = try JSONDecoder().decode([GasStation].self, from: data)
-            
-            // Geocodificar direcciones y actualizar coordenadas en las estaciones
-            let dispatchGroup = DispatchGroup() // Usado para esperar que todos los geocodificados terminen
-
-            for index in gasStations.indices {
-                            // Verificar que las coordenadas existan y sean válidas
-                if let latString = gasStations[index].Coordenadas?["lat"],
-                   let lonString = gasStations[index].Coordenadas?["lon"],
-                let lat = Double(latString),
-                let lon = Double(lonString) {
-                    // Asignar el nuevo CLLocationCoordinate2D
-                    gasStations[index].coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
-                }
-            }
-            
-            // Esperar a que todas las tareas de geocodificación terminen antes de filtrar
-            dispatchGroup.notify(queue: .main) {
-                // Filtrar solo las estaciones con coordenadas válidas
-                self.gasStations = gasStations.filter { $0.coordinate != nil }
-            }
-            
+            var appDatas = try JSONDecoder().decode([AppData].self, from: data)
+            self.appDatas = appDatas
         } catch {
             print("Error loading or decoding JSON: \(error)")
         }
     }
 }
-*/

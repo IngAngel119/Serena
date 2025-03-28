@@ -71,7 +71,7 @@ struct ContactsConversationView: View {
         if var appData = ad.appDatas.first {
             appData.messages.append(newMessage)
             ad.appDatas[0] = appData
-            ad.saveData() // ✅ Guarda los datos en JSON
+            ad.saveData() // Guarda los datos en JSON
         }
 
         mensaje = ""

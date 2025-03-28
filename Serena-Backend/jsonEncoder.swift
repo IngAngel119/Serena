@@ -38,9 +38,9 @@ class ReadJsonData: ObservableObject {
         do {
             let data = try JSONEncoder().encode(appDatas.first)
             try data.write(to: url)
-            print("✅ Datos guardados en JSON")
+            print("Datos guardados en JSON")
         } catch {
-            print("❌ Error guardando JSON: \(error)")
+            print("Error guardando JSON: \(error)")
         }
     }
     

@@ -6,7 +6,6 @@
 //
 // Funciones para guardar y cargar JSON
 import Foundation
-import MapKit
 
 /*class ReadJsonData: ObservableObject {
     @Published var appDatas = AppData()

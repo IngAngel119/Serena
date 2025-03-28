@@ -13,7 +13,7 @@ struct ContactsView: View {
     var body: some View {
         NavigationView {
             List(ad.appDatas.first?.chats ?? []) { chat in
-                NavigationLink(destination: ContactsConversationView(nombre: chat.name)) {
+                NavigationLink(destination: ContactsConversationView(nombre: chat.name, ad: ad)) {
                     contactSection(for: chat)
                 }
             }

@@ -11,7 +11,7 @@ struct ContactsConversationView: View {
     let nombre: String
     @State private var mensaje = ""
     @State private var messages: [Message] = []
-    @StateObject private var ad = ReadJsonData()
+    @ObservedObject var ad: ReadJsonData
 
     var body: some View {
         VStack {
@@ -51,9 +51,15 @@ struct ContactsConversationView: View {
         }
         .navigationTitle(nombre)
         .onAppear {
-            // Filtra los mensajes solo del contacto seleccionado
-            messages = ad.appDatas.first?.messages.filter { ($0.sender == nombre && $0.destinatary == "Tú") || ($0.sender == "Tú" && $0.destinatary == nombre) } ?? []
+            loadMessages()
         }
+    }
+
+    private func loadMessages() {
+        messages = ad.appDatas.first?.messages.filter {
+            ($0.sender == nombre && $0.destinatary == "Tú") ||
+            ($0.sender == "Tú" && $0.destinatary == nombre)
+        } ?? []
     }
 
     private func sendMessage() {
@@ -61,10 +67,17 @@ struct ContactsConversationView: View {
 
         let newMessage = Message(id: UUID().uuidString, sender: "Tú", destinatary: nombre, content: mensaje, timestamp: "Justo ahora")
         messages.append(newMessage)
+
+        if var appData = ad.appDatas.first {
+            appData.messages.append(newMessage)
+            ad.appDatas[0] = appData
+            ad.saveData() // ✅ Guarda los datos en JSON
+        }
+
         mensaje = ""
     }
 }
 
 #Preview {
-    ContactsConversationView(nombre: "Juan Pérez")
+    ContactsConversationView(nombre: "Juan Pérez", ad: ReadJsonData())
 }

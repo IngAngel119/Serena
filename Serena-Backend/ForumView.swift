@@ -19,7 +19,7 @@ struct ForumView: View {
                     List {
                         // Itera sobre el array de posts usando el índice
                         ForEach(posts.indices, id: \.self) { index in
-                            PostView(post: $posts[index])
+                            PostView(post: $posts[index], ad: ad)
                         }
                     }
                     .listStyle(.plain)
@@ -54,9 +54,18 @@ struct ForumView: View {
     // Función para agregar un nuevo post
     private func addPost() {
         guard !newPostText.isEmpty else { return }
-        let newPost = Post(id: "1", author: "Tú", message: newPostText, timestamp: "Justo ahora", replies: [], replyText: "")
+        let newPost = Post(id: UUID().uuidString, author: "Tú", message: newPostText, timestamp: "Justo ahora", replies: [], replyText: "")
+        
+        // Agrega el nuevo post al array
         posts.insert(newPost, at: 0)
         newPostText = ""
+        
+        // Guarda los datos actualizados en el archivo JSON
+        if var appData = ad.appDatas.first {
+            appData.posts.append(newPost)
+            ad.appDatas[0] = appData
+            ad.saveData() // Guardar en JSON después de agregar el post
+        }
     }
 }
 

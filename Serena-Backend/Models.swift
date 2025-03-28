@@ -68,7 +68,8 @@ struct IconBar: View {
 
 struct PostView: View {
     @Binding var post: Post
-    
+    @ObservedObject var ad: ReadJsonData
+
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack {
@@ -122,11 +123,25 @@ struct PostView: View {
     
     private func addReply() {
         guard !post.replyText.isEmpty else { return }
-        // Agregar respuesta al post
+        
+        // Crear la nueva respuesta
+        let newReply = Reply(id: UUID().uuidString, author: "Tú", message: post.replyText, timestamp: "Justo ahora")
+        
+        // Agregar la respuesta al post
         var updatedPost = post
-        let newReply = Reply(id: "", author: "Tú", message: post.replyText, timestamp: "Justo ahora")
         updatedPost.addReply(reply: newReply)
         post = updatedPost
         post.replyText = "" // Limpiar el campo de respuesta
+        
+        // Guardar los cambios en el archivo JSON
+        if let appData = ad.appDatas.first {
+            // Buscar el índice del post en la lista
+            if let postIndex = appData.posts.firstIndex(where: { $0.id == post.id }) {
+                // Actualizar el post en la lista de datos
+                ad.appDatas[0].posts[postIndex] = post
+                ad.saveData() // Guardar los cambios
+            }
+        }
     }
 }
+

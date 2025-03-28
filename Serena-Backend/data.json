@@ -1,0 +1,69 @@
+{
+  "chats": [
+    {
+      "id": "1",
+      "name": "Juan Pérez",
+      "lastMessage": "Nos vemos mañana!",
+      "avatar": "person.fill"
+    },
+    {
+      "id": "2",
+      "name": "María López",
+      "lastMessage": "Gracias por todo!",
+      "avatar": "person.fill"
+    },
+    {
+      "id": "3",
+      "name": "Carlos Díaz",
+      "lastMessage": "¡Hablemos luego!",
+      "avatar": "person.fill"
+    }
+  ],
+  "posts": [
+    {
+      "id": "1",
+      "author": "Juan Pérez",
+      "message": "Hola a todos! 😊",
+      "timestamp": "2025-03-28T14:25:00Z",
+      "replies": [
+        {
+          "id": "1-1",
+          "author": "Tú",
+          "message": "¡Hola! ¿Cómo estás?",
+          "timestamp": "2025-03-28T14:26:00Z"
+        }
+      ],
+      "replyText": ""
+    },
+    {
+      "id": "2",
+      "author": "María López",
+      "message": "¿Alguien recomienda una buena app de productividad? 📱",
+      "timestamp": "2025-03-28T14:20:00Z",
+      "replies": [],
+      "replyText": ""
+    },
+    {
+      "id": "3",
+      "author": "Carlos Díaz",
+      "message": "¡Qué buen foro! 🎉",
+      "timestamp": "2025-03-28T14:15:00Z",
+      "replies": [],
+      "replyText": ""
+    }
+  ],
+  "messages": [
+    {
+      "id": "1",
+      "sender": "Juan Pérez",
+      "content": "Nos vemos mañana!",
+      "timestamp": "2025-03-28T14:30:00Z"
+    },
+    {
+      "id": "2",
+      "sender": "Tú",
+      "content": "¡Perfecto! Nos vemos entonces.",
+      "timestamp": "2025-03-28T14:35:00Z"
+    }
+  ]
+}

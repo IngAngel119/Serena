@@ -8,17 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var selectedTab: String = "Contacts"
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            ZStack {
+                VStack {
+                    if selectedTab == "Contacts" {
+                        ContactsView()
+                    } else if selectedTab == "Forum" {
+                        ForumView()
+                    }
+                    Spacer().padding(.bottom).frame(height: 100)
+                }
+                NavigationBarView(selectedTab: $selectedTab).padding(.bottom)
+            }.ignoresSafeArea().background(selectedTab == "Forum" ? Color.white : Color.gray.opacity(0.1))
         }
-        .padding()
     }
 }
 
 #Preview {
     ContentView()
 }
+

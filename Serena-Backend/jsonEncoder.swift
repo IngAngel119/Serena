@@ -22,8 +22,8 @@ class ReadJsonData: ObservableObject {
         
         do {
             let data = try Data(contentsOf: url)
-            var appDatas = try JSONDecoder().decode([AppData].self, from: data)
-            self.appDatas = appDatas
+            let appData = try JSONDecoder().decode(AppData.self, from: data)
+            self.appDatas = [appData] 
         } catch {
             print("Error loading or decoding JSON: \(error)")
         }

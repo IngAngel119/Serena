@@ -8,12 +8,8 @@
 import SwiftUI
 
 struct ForumView: View {
-    @State private var posts: [Post] = [
-        Post(id: "1", author: "Juan Pérez", message: "Hola a todos! 😊", timestamp: "Hace 5 min", replies: [], replyText: ""),
-        Post(id: "2", author: "María López", message: "¿Alguien recomienda una buena app de productividad? 📱", timestamp: "Hace 10 min", replies: [], replyText: ""),
-        Post(id: "3", author: "Carlos Díaz", message: "¡Qué buen foro! 🎉", timestamp: "Hace 20 min", replies: [], replyText: "")
-    ]
-    
+    @StateObject private var ad = ReadJsonData()
+    @State private var posts: [Post] = []
     @State private var newPostText: String = ""
 
     var body: some View {
@@ -46,6 +42,11 @@ struct ForumView: View {
                     .background(Color.white)
                 }
                 .navigationTitle("Foro")
+                .onAppear {
+                    if let firstData = ad.appDatas.first {
+                        posts = firstData.posts
+                    }
+                }
             }
         }
     }

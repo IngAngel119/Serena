@@ -38,6 +38,7 @@ struct Reply: Identifiable, Codable {
 struct Message: Identifiable, Codable {
     let id: String
     let sender: String
+    let destinatary: String
     let content: String
     let timestamp: String
 }

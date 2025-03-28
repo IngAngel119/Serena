@@ -10,11 +10,9 @@ import SwiftUI
 struct ContactsConversationView: View {
     let nombre: String
     @State private var mensaje = ""
-    @State private var messages: [Message] = [
-        Message(id: "1", sender: "Juan Pérez", content: "¡Hola! ¿Cómo estás?", timestamp: "Hace 5 min"),
-        Message(id: "2", sender: "Tú", content: "Estoy bien, ¿y tú?", timestamp: "Hace 4 min")
-    ]
-    
+    @State private var messages: [Message] = []
+    @StateObject private var ad = ReadJsonData()
+
     var body: some View {
         VStack {
             ScrollView {
@@ -24,7 +22,7 @@ struct ContactsConversationView: View {
                             .font(.caption)
                             .foregroundColor(.gray)
                             .padding(.horizontal)
-                        
+
                         Text(message.content)
                             .padding()
                             .background(message.sender == "Tú" ? Color.blue : Color.gray.opacity(0.2))
@@ -36,13 +34,13 @@ struct ContactsConversationView: View {
                     .padding(.top, 5)
                 }
             }
-            
+
             HStack {
                 TextField("Escribe un mensaje...", text: $mensaje)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.leading, 10)
                     .frame(height: 40)
-                
+
                 Button(action: sendMessage) {
                     Image(systemName: "paperplane.fill")
                         .foregroundColor(.blue)
@@ -52,17 +50,21 @@ struct ContactsConversationView: View {
             .padding()
         }
         .navigationTitle(nombre)
+        .onAppear {
+            // Filtra los mensajes solo del contacto seleccionado
+            messages = ad.appDatas.first?.messages.filter { ($0.sender == nombre && $0.destinatary == "Tú") || ($0.sender == "Tú" && $0.destinatary == nombre) } ?? []
+        }
     }
-    
+
     private func sendMessage() {
         guard !mensaje.isEmpty else { return }
-        
-        let newMessage = Message(id: "", sender: "Tú", content: mensaje, timestamp: "Justo ahora")
+
+        let newMessage = Message(id: UUID().uuidString, sender: "Tú", destinatary: nombre, content: mensaje, timestamp: "Justo ahora")
         messages.append(newMessage)
-        mensaje = "" 
+        mensaje = ""
     }
 }
 
 #Preview {
-    ContactsConversationView(nombre: "Angel Perez")
+    ContactsConversationView(nombre: "Juan Pérez")
 }

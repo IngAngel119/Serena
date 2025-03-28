@@ -56,14 +56,44 @@
     {
       "id": "1",
       "sender": "Juan Pérez",
+      "destinatary": "Tú",
       "content": "Nos vemos mañana!",
       "timestamp": "2025-03-28T14:30:00Z"
     },
     {
       "id": "2",
       "sender": "Tú",
+      "destinatary": "Juan Pérez",
       "content": "¡Perfecto! Nos vemos entonces.",
       "timestamp": "2025-03-28T14:35:00Z"
-    }
+    },
+    {
+      "id": "3",
+      "sender": "María López",
+      "destinatary": "Tú",
+      "content": "Gracias por todo!",
+      "timestamp": "2025-03-28T14:30:00Z"
+    },
+    {
+      "id": "4",
+      "sender": "Tú",
+      "destinatary": "María López",
+      "content": "No hay problema",
+      "timestamp": "2025-03-28T14:35:00Z"
+    },
+    {
+      "id": "5",
+      "sender": "Carlos Díaz",
+      "destinatary": "Tú",
+      "content": "¡Hablemos luego!",
+      "timestamp": "2025-03-28T14:30:00Z"
+    },
+    {
+      "id": "6",
+      "sender": "Tú",
+      "destinatary": "Carlos Díaz",
+      "content": "No hay problema",
+      "timestamp": "2025-03-28T14:35:00Z"
+    },
   ]
 }

@@ -6,9 +6,9 @@
 //
 
 import Testing
-@testable import Serena_Backend
+@testable import Serena
 
-struct Serena_BackendTests {
+struct SerenaTests {
 
     @Test func example() async throws {
         // Write your test here and use APIs like `#expect(...)` to check expected conditions.

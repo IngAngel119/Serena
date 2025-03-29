@@ -24,25 +24,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FACD049D2D971AE500238429 /* Serena-Backend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Serena-Backend.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FACD04AD2D971AE700238429 /* Serena-BackendTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Serena-BackendTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FACD04B72D971AE700238429 /* Serena-BackendUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Serena-BackendUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FACD049D2D971AE500238429 /* Serena.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Serena.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FACD04AD2D971AE700238429 /* SerenaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SerenaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FACD04B72D971AE700238429 /* SerenaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SerenaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		FACD049F2D971AE500238429 /* Serena-Backend */ = {
+		FACD049F2D971AE500238429 /* Serena */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Serena-Backend";
+			path = Serena;
 			sourceTree = "<group>";
 		};
-		FACD04B02D971AE700238429 /* Serena-BackendTests */ = {
+		FACD04B02D971AE700238429 /* SerenaTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Serena-BackendTests";
+			path = SerenaTests;
 			sourceTree = "<group>";
 		};
-		FACD04BA2D971AE700238429 /* Serena-BackendUITests */ = {
+		FACD04BA2D971AE700238429 /* SerenaUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Serena-BackendUITests";
+			path = SerenaUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -75,9 +75,9 @@
 		FACD04942D971AE500238429 = {
 			isa = PBXGroup;
 			children = (
-				FACD049F2D971AE500238429 /* Serena-Backend */,
-				FACD04B02D971AE700238429 /* Serena-BackendTests */,
-				FACD04BA2D971AE700238429 /* Serena-BackendUITests */,
+				FACD049F2D971AE500238429 /* Serena */,
+				FACD04B02D971AE700238429 /* SerenaTests */,
+				FACD04BA2D971AE700238429 /* SerenaUITests */,
 				FACD049E2D971AE500238429 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -85,9 +85,9 @@
 		FACD049E2D971AE500238429 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FACD049D2D971AE500238429 /* Serena-Backend.app */,
-				FACD04AD2D971AE700238429 /* Serena-BackendTests.xctest */,
-				FACD04B72D971AE700238429 /* Serena-BackendUITests.xctest */,
+				FACD049D2D971AE500238429 /* Serena.app */,
+				FACD04AD2D971AE700238429 /* SerenaTests.xctest */,
+				FACD04B72D971AE700238429 /* SerenaUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,9 +95,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FACD049C2D971AE500238429 /* Serena-Backend */ = {
+		FACD049C2D971AE500238429 /* Serena */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FACD04C12D971AE700238429 /* Build configuration list for PBXNativeTarget "Serena-Backend" */;
+			buildConfigurationList = FACD04C12D971AE700238429 /* Build configuration list for PBXNativeTarget "Serena" */;
 			buildPhases = (
 				FACD04992D971AE500238429 /* Sources */,
 				FACD049A2D971AE500238429 /* Frameworks */,
@@ -108,18 +108,18 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				FACD049F2D971AE500238429 /* Serena-Backend */,
+				FACD049F2D971AE500238429 /* Serena */,
 			);
-			name = "Serena-Backend";
+			name = Serena;
 			packageProductDependencies = (
 			);
 			productName = "Serena-Backend";
-			productReference = FACD049D2D971AE500238429 /* Serena-Backend.app */;
+			productReference = FACD049D2D971AE500238429 /* Serena.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FACD04AC2D971AE700238429 /* Serena-BackendTests */ = {
+		FACD04AC2D971AE700238429 /* SerenaTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FACD04C42D971AE700238429 /* Build configuration list for PBXNativeTarget "Serena-BackendTests" */;
+			buildConfigurationList = FACD04C42D971AE700238429 /* Build configuration list for PBXNativeTarget "SerenaTests" */;
 			buildPhases = (
 				FACD04A92D971AE700238429 /* Sources */,
 				FACD04AA2D971AE700238429 /* Frameworks */,
@@ -131,18 +131,18 @@
 				FACD04AF2D971AE700238429 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				FACD04B02D971AE700238429 /* Serena-BackendTests */,
+				FACD04B02D971AE700238429 /* SerenaTests */,
 			);
-			name = "Serena-BackendTests";
+			name = SerenaTests;
 			packageProductDependencies = (
 			);
 			productName = "Serena-BackendTests";
-			productReference = FACD04AD2D971AE700238429 /* Serena-BackendTests.xctest */;
+			productReference = FACD04AD2D971AE700238429 /* SerenaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		FACD04B62D971AE700238429 /* Serena-BackendUITests */ = {
+		FACD04B62D971AE700238429 /* SerenaUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FACD04C72D971AE700238429 /* Build configuration list for PBXNativeTarget "Serena-BackendUITests" */;
+			buildConfigurationList = FACD04C72D971AE700238429 /* Build configuration list for PBXNativeTarget "SerenaUITests" */;
 			buildPhases = (
 				FACD04B32D971AE700238429 /* Sources */,
 				FACD04B42D971AE700238429 /* Frameworks */,
@@ -154,13 +154,13 @@
 				FACD04B92D971AE700238429 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				FACD04BA2D971AE700238429 /* Serena-BackendUITests */,
+				FACD04BA2D971AE700238429 /* SerenaUITests */,
 			);
-			name = "Serena-BackendUITests";
+			name = SerenaUITests;
 			packageProductDependencies = (
 			);
 			productName = "Serena-BackendUITests";
-			productReference = FACD04B72D971AE700238429 /* Serena-BackendUITests.xctest */;
+			productReference = FACD04B72D971AE700238429 /* SerenaUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -186,7 +186,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FACD04982D971AE500238429 /* Build configuration list for PBXProject "Serena-Backend" */;
+			buildConfigurationList = FACD04982D971AE500238429 /* Build configuration list for PBXProject "Serena" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -200,9 +200,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FACD049C2D971AE500238429 /* Serena-Backend */,
-				FACD04AC2D971AE700238429 /* Serena-BackendTests */,
-				FACD04B62D971AE700238429 /* Serena-BackendUITests */,
+				FACD049C2D971AE500238429 /* Serena */,
+				FACD04AC2D971AE700238429 /* SerenaTests */,
+				FACD04B62D971AE700238429 /* SerenaUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -258,12 +258,12 @@
 /* Begin PBXTargetDependency section */
 		FACD04AF2D971AE700238429 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FACD049C2D971AE500238429 /* Serena-Backend */;
+			target = FACD049C2D971AE500238429 /* Serena */;
 			targetProxy = FACD04AE2D971AE700238429 /* PBXContainerItemProxy */;
 		};
 		FACD04B92D971AE700238429 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FACD049C2D971AE500238429 /* Serena-Backend */;
+			target = FACD049C2D971AE500238429 /* Serena */;
 			targetProxy = FACD04B82D971AE700238429 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -395,7 +395,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Serena-Backend/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Serena/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -423,7 +423,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Serena-Backend/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Serena/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -458,7 +458,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Serena-Backend.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Serena-Backend";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Serena.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Serena";
 			};
 			name = Debug;
 		};
@@ -476,7 +476,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Serena-Backend.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Serena-Backend";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Serena.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Serena";
 			};
 			name = Release;
 		};
@@ -515,7 +515,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FACD04982D971AE500238429 /* Build configuration list for PBXProject "Serena-Backend" */ = {
+		FACD04982D971AE500238429 /* Build configuration list for PBXProject "Serena" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FACD04BF2D971AE700238429 /* Debug */,
@@ -524,7 +524,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FACD04C12D971AE700238429 /* Build configuration list for PBXNativeTarget "Serena-Backend" */ = {
+		FACD04C12D971AE700238429 /* Build configuration list for PBXNativeTarget "Serena" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FACD04C22D971AE700238429 /* Debug */,
@@ -533,7 +533,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FACD04C42D971AE700238429 /* Build configuration list for PBXNativeTarget "Serena-BackendTests" */ = {
+		FACD04C42D971AE700238429 /* Build configuration list for PBXNativeTarget "SerenaTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FACD04C52D971AE700238429 /* Debug */,
@@ -542,7 +542,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FACD04C72D971AE700238429 /* Build configuration list for PBXNativeTarget "Serena-BackendUITests" */ = {
+		FACD04C72D971AE700238429 /* Build configuration list for PBXNativeTarget "SerenaUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FACD04C82D971AE700238429 /* Debug */,

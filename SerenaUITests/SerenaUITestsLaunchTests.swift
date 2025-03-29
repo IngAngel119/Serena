@@ -7,7 +7,7 @@
 
 import XCTest
 
-final class Serena_BackendUITestsLaunchTests: XCTestCase {
+final class SerenaUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

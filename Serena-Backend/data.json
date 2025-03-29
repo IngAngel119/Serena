@@ -20,38 +20,45 @@
     }
   ],
   "posts": [
-    {
-      "id": "1",
-      "author": "Juan Pérez",
-      "message": "Hola a todos! 😊",
-      "timestamp": "2025-03-28T14:25:00Z",
-      "replies": [
-        {
-          "id": "1-1",
-          "author": "Tú",
-          "message": "¡Hola! ¿Cómo estás?",
-          "timestamp": "2025-03-28T14:26:00Z"
-        }
-      ],
-      "replyText": ""
-    },
-    {
-      "id": "2",
-      "author": "María López",
-      "message": "¿Alguien recomienda una buena app de productividad? 📱",
-      "timestamp": "2025-03-28T14:20:00Z",
-      "replies": [],
-      "replyText": ""
-    },
-    {
-      "id": "3",
-      "author": "Carlos Díaz",
-      "message": "¡Qué buen foro! 🎉",
-      "timestamp": "2025-03-28T14:15:00Z",
-      "replies": [],
-      "replyText": ""
-    }
-  ],
+      {
+        "id": "1",
+        "author": "Ana M.",
+        "message": "Hola, llevo varias semanas sintiéndome muy ansiosa sin motivo aparente... 😔",
+        "timestamp": "2025-03-28T14:25:00Z",
+        "replies": [
+          {
+            "id": "1-1",
+            "author": "Psic. Laura González",
+            "message": "Hola Ana. Lo que describes es común en trastornos de ansiedad generalizada. Te recomendaría llevar un diario de tus síntomas y considerar una primera consulta para evaluarlo mejor.",
+            "timestamp": "2025-03-28T14:30:00Z"
+          }
+        ],
+        "replyText": ""
+      },
+      {
+        "id": "2",
+        "author": "Pablo R.",
+        "message": "¿Alguien ha probado técnicas efectivas para ataques de pánico? Siento que me ahogo cuando me ocurren 😥",
+        "timestamp": "2025-03-28T14:20:00Z",
+        "replies": [],
+        "replyText": ""
+      },
+      {
+        "id": "3",
+        "author": "Sofía T.",
+        "message": "Gracias por este espacio. Es la primera vez que hablo de mi depresión y se siente liberador. 💙",
+        "timestamp": "2025-03-28T14:15:00Z",
+        "replies": [
+          {
+            "id": "3-1",
+            "author": "Psic. Javier Ruiz",
+            "message": "Sofía, dar este primer paso es muy valioso. La depresión puede hacernos sentir aislados, pero no estás sola. Te animo a explorar opciones de tratamiento.",
+            "timestamp": "2025-03-28T14:18:00Z"
+          }
+        ],
+        "replyText": ""
+      }
+    ],
   "messages": [
     {
       "id": "1",

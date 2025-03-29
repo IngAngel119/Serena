@@ -88,8 +88,8 @@ struct LoginView: View {
                     .background(Color.white)
                     .alert(isPresented: $showAlert) {
                         Alert(
-                            title: Text("¡Bienvenido!"),
-                            message: Text("Has iniciado sesión correctamente."),
+                            title: Text("¡Usuario y/o contraseña Fallida!"),
+                            message: Text("Intente de nuevo."),
                             dismissButton: .default(Text("OK"))
                         )
                     }

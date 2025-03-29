@@ -19,7 +19,19 @@ class ReadJsonData: ObservableObject {
     }
     
     func loadData() {
-        if !appDatas.isEmpty{
+        guard let url = getDocumentsURL() else {
+            print("JSON not found")
+            return
+        }
+        if FileManager.default.fileExists(atPath: url.path) {
+            do {
+                let data = try Data(contentsOf: url)
+                let appData = try JSONDecoder().decode(AppData.self, from: data)
+                self.appDatas = [appData]
+            } catch {
+                print("Error loading or decoding JSON: \(error)")
+            }
+        } else{
             guard let url = Bundle.main.url(forResource: "data", withExtension: "json") else {
                 print("JSON not found")
                 return
@@ -31,20 +43,7 @@ class ReadJsonData: ObservableObject {
             } catch {
                 print("Error loading or decoding JSON: \(error)")
             }
-        }else{
-            guard let url = getDocumentsURL() else {
-                print("JSON not found")
-                return
-            }
-            do {
-                let data = try Data(contentsOf: url)
-                let appData = try JSONDecoder().decode(AppData.self, from: data)
-                self.appDatas = [appData]
-            } catch {
-                print("Error loading or decoding JSON: \(error)")
-            }
         }
-        
     }
     
     func saveData() {

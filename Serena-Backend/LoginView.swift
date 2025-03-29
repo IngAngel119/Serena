@@ -95,8 +95,7 @@ struct LoginView: View {
                     }
                 }
             }
-        }
-        
+        }.navigationBarBackButtonHidden(true)
     }
     
     func login() {

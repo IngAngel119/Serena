@@ -11,7 +11,7 @@ struct ContentView: View {
     @State private var showLoginView = false
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
           
                 Color(hex: "#8FD5E5")

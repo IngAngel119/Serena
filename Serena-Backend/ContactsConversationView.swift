@@ -71,17 +71,24 @@ struct ContactsConversationView: View {
         
         if let appData = ad.appDatas.first {
             if let userIndex = appData.users.firstIndex(where: { $0.name == newMessage.destinatary }) {
-                // Verificar si ya existe un chat con ese nombre
-                let userChats = ad.appDatas[0].users[userIndex].chats
-                if !userChats.contains(where: { $0.name == newMessage.sender }) {
-                    // Si no existe, agregar el chat
+                // Referencia a los chats del usuario
+                var userChats = ad.appDatas[0].users[userIndex].chats
+                
+                // Buscar el índice del chat si ya existe
+                if let chatIndex = userChats.firstIndex(where: { $0.name == newMessage.sender }) {
+                    // Si el chat existe, actualizar el último mensaje
+                    ad.appDatas[0].users[userIndex].chats[chatIndex].lastMessage = newMessage.content
+                } else {
+                    // Si no existe, agregar el chat nuevo
                     ad.appDatas[0].users[userIndex].chats.append(
                         Chat(id: UUID().uuidString, name: newMessage.sender, lastMessage: newMessage.content, avatar: "person.fill")
                     )
-                    ad.saveData() // Guardar los cambios
                 }
+                
+                ad.saveData() // Guardar los cambios
             }
         }
+
 
         if var appData = ad.appDatas.first {
             appData.messages.append(newMessage)

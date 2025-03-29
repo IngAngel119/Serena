@@ -47,7 +47,7 @@ extension ContactsView {
 
 #Preview {
     var ad = ReadJsonData()
-    ContactsView(user: ad.appDatas.first?.users[0] ?? User(
+    ContactsView(user: ad.appDatas.first?.users[1] ?? User(
         id: "1",
         name: "Angel Escalante",
         email: "angel@gmail.com",

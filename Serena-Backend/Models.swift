@@ -21,7 +21,7 @@ struct User: Identifiable, Codable {
 struct Chat: Identifiable, Codable {
     let id: String
     let name: String
-    let lastMessage: String
+    var lastMessage: String
     let avatar: String
 }
 

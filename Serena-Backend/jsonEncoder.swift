@@ -18,17 +18,31 @@ class ReadJsonData: ObservableObject {
         loadData()
     }
     
-    func loadData() { //Comentario se debe usar la primera vez, sino no hay información
-        guard let url = getDocumentsURL() /*Bundle.main.url(forResource: "data", withExtension: "json")*/ else {
-            print("JSON not found")
-            return
-        }
-        do {
-            let data = try Data(contentsOf: url)
-            let appData = try JSONDecoder().decode(AppData.self, from: data)
-            self.appDatas = [appData]
-        } catch {
-            print("Error loading or decoding JSON: \(error)")
+    func loadData() {
+        if !appDatas.isEmpty{
+            guard let url = Bundle.main.url(forResource: "data", withExtension: "json") else {
+                print("JSON not found")
+                return
+            }
+            do {
+                let data = try Data(contentsOf: url)
+                let appData = try JSONDecoder().decode(AppData.self, from: data)
+                self.appDatas = [appData]
+            } catch {
+                print("Error loading or decoding JSON: \(error)")
+            }
+        }else{
+            guard let url = getDocumentsURL() else {
+                print("JSON not found")
+                return
+            }
+            do {
+                let data = try Data(contentsOf: url)
+                let appData = try JSONDecoder().decode(AppData.self, from: data)
+                self.appDatas = [appData]
+            } catch {
+                print("Error loading or decoding JSON: \(error)")
+            }
         }
         
     }

@@ -30,5 +30,5 @@ struct MainView: View {
 
 #Preview {
     var ad = ReadJsonData()
-    MainView(user: ad.users[0])
+    MainView(user: ad.users[1])
 }

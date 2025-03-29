@@ -55,7 +55,7 @@ struct ForumView: View {
     // Función para agregar un nuevo post
     private func addPost() {
         guard !newPostText.isEmpty else { return }
-        let newPost = Post(id: UUID().uuidString, author: "Tú", message: newPostText, timestamp: "Justo ahora", replies: [], replyText: "")
+        let newPost = Post(id: UUID().uuidString, author: user.email, message: newPostText, timestamp: "Justo ahora", replies: [], replyText: "")
         
         // Agrega el nuevo post al array
         posts.insert(newPost, at: 0)
@@ -72,5 +72,16 @@ struct ForumView: View {
 
 #Preview {
     var ad = ReadJsonData()
-    ForumView(user: ad.users[1])
+    ForumView(user: ad.appDatas.first?.users[0] ?? User(
+        id: "1",
+        name: "Angel Escalante",
+        email: "angel@gmail.com",
+        password: "123456",
+        avatar: "person.fill",
+        isPsicologist: true,
+        chats: [
+            Chat(id: "1", name: "Juan Pérez", lastMessage: "Nos vemos mañana!", avatar: "person.fill"),
+            Chat(id: "2", name: "María López", lastMessage: "Gracias por todo!", avatar: "person.fill")
+        ]
+    ))
 }

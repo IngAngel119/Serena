@@ -9,11 +9,12 @@ import SwiftUI
 
 struct ContactsView: View {
     var ad = ReadJsonData()
+    var user: User
     
     var body: some View {
         NavigationView {
-            List(ad.appDatas.first?.chats ?? []) { chat in
-                NavigationLink(destination: ContactsConversationView(nombre: chat.name, ad: ad)) {
+            List(user.chats) { chat in
+                NavigationLink(destination: ContactsConversationView(nombre: chat.name, ad: ad, user: user)) {
                     contactSection(for: chat)
                 }
             }
@@ -45,5 +46,17 @@ extension ContactsView {
 }
 
 #Preview {
-    ContactsView()
+    var ad = ReadJsonData()
+    ContactsView(user: ad.appDatas.first?.users[0] ?? User(
+        id: "1",
+        name: "Angel Escalante",
+        email: "angel@gmail.com",
+        password: "123456",
+        avatar: "person.fill",
+        isPsicologist: true,
+        chats: [
+            Chat(id: "1", name: "Juan Pérez", lastMessage: "Nos vemos mañana!", avatar: "person.fill"),
+            Chat(id: "2", name: "María López", lastMessage: "Gracias por todo!", avatar: "person.fill")
+        ]
+    ))
 }

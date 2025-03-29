@@ -10,8 +10,8 @@ import Foundation
 class ReadJsonData: ObservableObject {
     @Published var appDatas = [AppData]()
     @Published var users: [User] = [
-        User(id: "1", name: "Angel", email: "angel@gmail.com", password: "123456", avatar: "person.fill", isPsicologist: true),
-        User(id: "2", name: "Luis", email: "luis@gmail.com", password: "123456", avatar: "person.fill", isPsicologist: false),
+        User(id: "1", name: "Angel", email: "angel@gmail.com", password: "123456", avatar: "person.fill", isPsicologist: true, chats: []),
+        User(id: "2", name: "Luis", email: "luis@gmail.com", password: "123456", avatar: "person.fill", isPsicologist: false, chats: []),
     ]
     
     init() {

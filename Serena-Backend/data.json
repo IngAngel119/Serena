@@ -94,6 +94,26 @@
       "destinatary": "Carlos Díaz",
       "content": "No hay problema",
       "timestamp": "2025-03-28T14:35:00Z"
-    },
+    }
   ],
+  "users": [
+    {
+      "id": "1",
+      "name": "Angel Escalante",
+      "email": "angel@gmail.com",
+      "password": "123456",
+      "avatar": "person.fill",
+      "isPsicologist": true,
+      "chats": []
+    },
+    {
+      "id": "2",
+      "name": "Luis Pérez",
+      "email": "luis@gmail.com",
+      "password": "123456",
+      "avatar": "person.fill",
+      "isPsicologist": false,
+      "chats": []
+    }
+  ]
 }

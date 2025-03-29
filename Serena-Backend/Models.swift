@@ -15,7 +15,7 @@ struct User: Identifiable, Codable {
     let password: String
     let avatar: String
     let isPsicologist: Bool
-    var contacts: [User] = []
+    var chats: [Chat]
 }
 
 struct Chat: Identifiable, Codable {
@@ -57,6 +57,7 @@ struct AppData: Codable {
     var chats: [Chat]
     var posts: [Post]
     var messages: [Message]
+    var users: [User]
 }
 
 
@@ -84,7 +85,7 @@ struct PostView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack {
-                Text(post.author)
+                Text("Anonimo")
                     .font(.headline)
                 Text(post.timestamp)
                     .font(.subheadline)
@@ -98,7 +99,7 @@ struct PostView: View {
             if !post.replies.isEmpty {
                 ForEach(post.replies) { reply in
                     VStack(alignment: .leading) {
-                        Text(reply.author)
+                        Text("Respuesta")
                             .font(.subheadline)
                             .foregroundColor(.blue)
                         Text(reply.message)
@@ -145,13 +146,31 @@ struct PostView: View {
         guard !post.replyText.isEmpty else { return }
         
         // Crear la nueva respuesta
-        let newReply = Reply(id: UUID().uuidString, author: "Tú", message: post.replyText, timestamp: "Justo ahora")
+        let newReply = Reply(id: UUID().uuidString, author: user.name, message: post.replyText, timestamp: "Justo ahora")
+        
         
         // Agregar la respuesta al post
         var updatedPost = post
         updatedPost.addReply(reply: newReply)
         post = updatedPost
         post.replyText = "" // Limpiar el campo de respuesta
+        
+        if let appData = ad.appDatas.first {
+            if let userIndex = appData.users.firstIndex(where: { $0.email == post.author }) {
+                // Obtener los chats actuales del usuario
+                let userChats = ad.appDatas[0].users[userIndex].chats
+                
+                // Verificar si ya existe un chat con ese nombre
+                if !userChats.contains(where: { $0.name == user.name }) {
+                    // Si no existe, agregar el chat
+                    ad.appDatas[0].users[userIndex].chats.append(
+                        Chat(id: UUID().uuidString, name: user.name, lastMessage: "", avatar: "person.fill")
+                    )
+                    ad.saveData() // Guardar los cambios
+                }
+            }
+        }
+
         
         // Guardar los cambios en el archivo JSON
         if let appData = ad.appDatas.first {

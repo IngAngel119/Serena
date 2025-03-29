@@ -16,7 +16,7 @@ struct MainView: View {
             ZStack {
                 VStack {
                     if selectedTab == "Contacts" {
-                        ContactsView()
+                        ContactsView(user: user)
                     } else if selectedTab == "Forum" {
                         ForumView(user: user)
                     }
@@ -30,5 +30,16 @@ struct MainView: View {
 
 #Preview {
     var ad = ReadJsonData()
-    MainView(user: ad.users[0])
+    MainView(user: ad.appDatas.first?.users[1] ?? User(
+        id: "1",
+        name: "Angel Escalante",
+        email: "angel@gmail.com",
+        password: "123456",
+        avatar: "person.fill",
+        isPsicologist: true,
+        chats: [
+            Chat(id: "1", name: "Juan Pérez", lastMessage: "Nos vemos mañana!", avatar: "person.fill"),
+            Chat(id: "2", name: "María López", lastMessage: "Gracias por todo!", avatar: "person.fill")
+        ]
+    ))
 }

@@ -19,7 +19,7 @@ struct LoginView: View {
     var body: some View {
         VStack{
             if isLoggedIn {
-                MainView(user: currentUser ?? User(id: "1", name: "Error", email: "Admin@error.com", password: "error", avatar: "person.fill", isPsicologist: false))
+                MainView(user: currentUser ?? User(id: "1", name: "Error", email: "Admin@error.com", password: "error", avatar: "person.fill", isPsicologist: false, chats: []))
             }
             else{
                 NavigationView {
@@ -99,14 +99,19 @@ struct LoginView: View {
     }
     
     func login() {
-        // Busca el usuario con las credenciales ingresadas
-        if let user = ad.self.users.first(where: { $0.email == email && $0.password == password }) {
-            // Si se encuentra el usuario, pasa a la vista principal
-            isLoggedIn = true
-            currentUser = user  // Guarda el usuario logueado
-            showAlert = true
+        // Asegurarse de que hay datos en appDatas
+        if let appData = ad.appDatas.first {
+            // Buscar el usuario dentro de los datos de la aplicación
+            if let user = appData.users.first(where: { $0.email == email && $0.password == password }) {
+                // Si se encuentra el usuario, pasa a la vista principal
+                isLoggedIn = true
+                currentUser = user  // Guarda el usuario logueado
+            } else {
+                // Si no hay coincidencias, muestra una alerta
+                showAlert = true
+            }
         } else {
-            // Si no hay coincidencias, muestra una alerta
+            // Si no hay datos en appDatas, mostrar alerta de error
             showAlert = true
         }
     }

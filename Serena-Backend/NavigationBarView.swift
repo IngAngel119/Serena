@@ -22,7 +22,7 @@ struct NavigationBarView: View {
                         Spacer()
                         Button(action: { selectedTab = "Contacts" }) {
                             VStack {
-                                Image(systemName: "person.fill")
+                                Image(systemName: "bubble.left.fill").font(.system(size: 25))
                                 Text("Contactos")
                                     .font(.caption)
                             }
@@ -31,7 +31,8 @@ struct NavigationBarView: View {
                         Spacer()
                         Button(action: { selectedTab = "Forum" }) {
                             VStack {
-                                Image(systemName: "message")
+                                Image(systemName: "house.fill")
+                                    .font(.system(size: 25))
                                 Text("Foro")
                                     .font(.caption)
                             }

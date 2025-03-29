@@ -11,6 +11,7 @@ struct ForumView: View {
     @StateObject private var ad = ReadJsonData()
     @State private var posts: [Post] = []
     @State private var newPostText: String = ""
+    var user: User
 
     var body: some View {
         NavigationView{
@@ -19,7 +20,7 @@ struct ForumView: View {
                     List {
                         // Itera sobre el array de posts usando el índice
                         ForEach(posts.indices, id: \.self) { index in
-                            PostView(post: $posts[index], ad: ad)
+                            PostView(post: $posts[index], ad: ad, user: user)
                         }
                     }
                     .listStyle(.plain)
@@ -70,5 +71,6 @@ struct ForumView: View {
 }
 
 #Preview {
-    ForumView()
+    var ad = ReadJsonData()
+    ForumView(user: ad.users[1])
 }

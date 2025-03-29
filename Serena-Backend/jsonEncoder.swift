@@ -9,6 +9,10 @@ import Foundation
 
 class ReadJsonData: ObservableObject {
     @Published var appDatas = [AppData]()
+    @Published var users: [User] = [
+        User(id: "1", name: "Angel", email: "angel@gmail.com", password: "123456", avatar: "person.fill", isPsicologist: true),
+        User(id: "2", name: "Luis", email: "luis@gmail.com", password: "123456", avatar: "person.fill", isPsicologist: false),
+    ]
     
     init() {
         loadData()
@@ -22,7 +26,7 @@ class ReadJsonData: ObservableObject {
         do {
             let data = try Data(contentsOf: url)
             let appData = try JSONDecoder().decode(AppData.self, from: data)
-            self.appDatas = [appData] 
+            self.appDatas = [appData]
         } catch {
             print("Error loading or decoding JSON: \(error)")
         }
@@ -50,7 +54,7 @@ class ReadJsonData: ObservableObject {
             return nil
         }
         let fileURL = docsURL.appendingPathComponent("data.json")
-            print("📂 JSON guardado en: \(fileURL.path)")
+            print("JSON guardado en: \(fileURL.path)")
         return docsURL.appendingPathComponent("data.json")
     }
 

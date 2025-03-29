@@ -26,7 +26,7 @@ struct NavigationBarView: View {
                                 Text("Contactos")
                                     .font(.caption)
                             }
-                            .foregroundColor(selectedTab == "Contacts" ? .blue : .gray)
+                            .foregroundColor(selectedTab == "Contacts" ? Color(hex: "#8FD5E5") : .gray)
                         }
                         Spacer()
                         Button(action: { selectedTab = "Forum" }) {
@@ -35,7 +35,7 @@ struct NavigationBarView: View {
                                 Text("Foro")
                                     .font(.caption)
                             }
-                            .foregroundColor(selectedTab == "Forum" ? .blue : .gray)
+                            .foregroundColor(selectedTab == "Forum" ? Color(hex: "#8FD5E5") : .gray)
                         }
                         Spacer()
                     }

@@ -29,6 +29,7 @@ extension ContactsView {
                 .resizable()
                 .frame(width: 30, height: 30)
                 .clipShape(Circle())
+                .foregroundColor(Color(hex: "#8FD5E5"))
             
             Spacer().frame(width: 30)
             

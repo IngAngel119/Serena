@@ -8,6 +8,16 @@ import SwiftUI
 
 import Foundation
 
+struct User: Identifiable, Codable {
+    let id: String
+    let name: String
+    let email: String
+    let password: String
+    let avatar: String
+    let isPsicologist: Bool
+    var contacts: [User] = []
+}
+
 struct Chat: Identifiable, Codable {
     let id: String
     let name: String
@@ -57,10 +67,10 @@ struct IconBar: View {
     var body: some View {
         VStack {
             Image(systemName: icon)
-                .foregroundColor(.black)
+                .foregroundColor(Color(hex: "#8FD5E5"))
             Text(text)
                 .font(.footnote)
-                .foregroundColor(.black)
+                .foregroundColor(Color(hex: "#8FD5E5"))
         }
         .frame(maxWidth: .infinity)
     }
@@ -69,6 +79,7 @@ struct IconBar: View {
 struct PostView: View {
     @Binding var post: Post
     @ObservedObject var ad: ReadJsonData
+    var user: User
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -96,24 +107,33 @@ struct PostView: View {
                     }
                 }
             }
+            
+            // Responder al post solo si el usuario es psicólogo
+            if user.isPsicologist {
+                HStack {
+                    TextField("Escribe una respuesta...", text: $post.replyText)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding(.leading, 10)
 
-            // Responder al post
-            HStack {
-                TextField("Escribe una respuesta...", text: $post.replyText)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(.leading, 10)
-
-                Button(action: {
-                    addReply()
-                }) {
-                    Image(systemName: "paperplane.fill")
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.green)
-                        .clipShape(Circle())
+                    Button(action: {
+                        addReply()
+                    }) {
+                        Image(systemName: "paperplane.fill")
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color(hex: "#8FD5E5"))
+                            .clipShape(Circle())
+                    }
                 }
+                .padding(.top, 5)
+            } else {
+                // Aquí agregamos un HStack vacío para mantener la estructura del layout
+                HStack {
+                    Spacer()  // Mantener espacio vacío
+                }
+                .frame(height: 10)  // Ajusta la altura según el tamaño deseado
             }
-            .padding(.top, 5)
+            
         }
         .padding()
         .background(Color.white)

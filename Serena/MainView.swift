@@ -23,7 +23,7 @@ struct MainView: View {
                     Spacer().padding(.bottom).frame(height: 100)
                 }
                 NavigationBarView(selectedTab: $selectedTab).padding(.bottom)
-            }.ignoresSafeArea().background(selectedTab == "Forum" ? Color.white : Color.gray.opacity(0.1))
+            }.ignoresSafeArea().background(Color.white)
         }
     }
 }
